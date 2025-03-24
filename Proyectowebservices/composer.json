@@ -1,0 +1,17 @@
+{
+    "name": "lenovo/appwebservices4",
+    "autoload": {
+        "psr-4": {
+            "Lenovo\\Appwebservices4\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yeferson Tello",
+            "email": "yefertello2002@gmail.com"
+        }
+    ],
+    "require": {
+        "econea/nusoap": "^0.9.18"
+    }
+}
