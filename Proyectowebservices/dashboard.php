@@ -249,7 +249,6 @@ if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
             let parser = new DOMParser();
             let xmlDoc = parser.parseFromString(textResponse, "text/xml");
 
-            // Buscamos la etiqueta return o ns1:return
             let resultTag = xmlDoc.getElementsByTagName("return")[0] || xmlDoc.getElementsByTagName("ns1:return")[0];
             let result = resultTag ? resultTag.textContent : "Error desconocido";
 
@@ -272,7 +271,7 @@ if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
     });
     </script>
 
-    <!---       FIN        Modulo para crar un nuevo usuario -------->
+    <!---       FIN        Modulo para crear un nuevo usuario -------->
     
     <!---       CREAR        Modulo para ACTUALIZAR un nuevo usuario -------->
 

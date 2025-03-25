@@ -28,11 +28,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </soapenv:Envelope>
     ";
 
-    // Enviar la solicitud SOAP
     $url = "http://127.0.0.1/webservices/Proyectowebservices/invocar.php"; // URL del servicio SOAP
     $headers = array(
         "Content-Type: text/xml"
     );
+    
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -44,15 +44,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $response = curl_exec($ch);
     curl_close($ch);
 
-    // Procesar la respuesta del servicio SOAP
     if ($response) {
         $xml = simplexml_load_string($response);
         $result = (string)$xml->xpath("//return")[0];
 
         if ($result == "Login exitoso") {
             $_SESSION['usuario'] = $usuario;
-            $_SESSION['logged_in'] = true; // Guarda el estado de logueo
-            header('Location: dashboard.php'); // Redirige al dashboard
+            $_SESSION['logged_in'] = true; 
+            header('Location: dashboard.php'); 
             exit();
         } else {
             $error_message = "Usuario o contraseña incorrectos.";
